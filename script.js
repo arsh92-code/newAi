@@ -1,28 +1,4 @@
-function allowOnce() {
-    navigator.mediaDevices.getUserMedia({ audio: true })
-    .then(function(stream) {
-        alert('Microphone access allowed for this time.');
-        // Use the stream for your needs and stop after one use
-        stream.getTracks().forEach(track => track.stop());  // Stops the microphone after use
-        closePopup();
-    })
-    .catch(function(err) {
-        alert('Microphone access denied or not available.');
-    });
-}
-
-function allowAlways() {
-    alert('This feature is limited to allow one-time access only.');
-}
-
-function neverAllow() {
-    alert('Microphone access denied.');
-    closePopup();
-}
-
-function closePopup() {
-    document.getElementById('permission-popup').style.display = 'none';
-}
+    
 
 let btn=document.querySelector("#btn")
 let content=document.querySelector("#content")
@@ -33,7 +9,7 @@ function speak(text){
     text_speak.rate=1
     text_speak.pitch=1
     text_speak.volume=1
-    text_speak.lang="hi-GB"
+    text_speak.lang="hi-GN"
     window.speechSynthesis.speak(text_speak)
 }
 
@@ -132,4 +108,3 @@ function takeCommand(message){
         window.open(`https://www.google.com/search?q=${message.replace("shipra","")}`,"_blank")
     }
 }
- 
